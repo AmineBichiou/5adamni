@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khademni - Lien CV Généré</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Style pour l'input du lien */
+        .cv-link-input {
+            background-color: #f3f4f6; /* gray-100 */
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #d1d5db;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <header class="bg-[#0b1f38] text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <a href="#" class="flex-shrink-0">
+                    <img class="h-6 w-auto" src="https://via.placeholder.com/100x24?text=Khademni" alt="Khademni Logo">
+                </a>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#" class="hover:text-gray-300">Offres Compatibles</a>
+                <div class="relative group">
+                    <button class="flex items-center hover:text-gray-300">
+                        Profil & Expérience
+                        <svg class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="relative group">
+                    <button class="flex items-center hover:text-gray-300">
+                        Équilibre Travail
+                        <svg class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="bg-yellow-500 text-[#0b1f38] px-4 py-1 rounded text-sm font-semibold">Login</a>
+                <div class="rounded-full bg-gray-500 h-8 w-8 hidden md:block">
+                    <svg class="h-full w-full text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 sm:p-8 lg:p-12">
+        <div class="max-w-xl mx-auto flex flex-col items-center pt-24">
+            
+            <div class="w-full bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                <div class="flex items-center justify-center mb-6">
+                    <div class="text-[#0b1f38] mr-3">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4m-4-4H4" />
+                        </svg>
+                    </div>
+                    <h1 class="text-3xl font-semibold text-[#0b1f38]"> lien (Place le titre)</h1>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-gray-600 font-medium">Copier:</p>
+                    <div class="flex items-center space-x-2">
+                        <input type="text" value="https://cv-gen.com/share/xyz123" readonly class="flex-grow cv-link-input text-lg text-gray-800" />
+                        
+                        <button class="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition duration-150 flex-shrink-0" onclick="navigator.clipboard.writeText('https://cv-gen.com/share/xyz123')">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v4a1 1 0 001 1h4a1 1 0 001-1V7m-5 0V5a2 2 0 012-2h4a2 2 0 012 2v2m-6 0h6m-7-5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-center">
+                    <a href="parcours_academique.html" class="text-blue-500 hover:text-blue-600 font-medium transition duration-150">
+                        Créer un nouveau CV
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-[#0b1f38] text-white mt-48 p-6">
+        <div class="container mx-auto text-center text-xs text-gray-400">
+            <p>© 2025 Khademni LLC. All rights reserved. | Terms & Privacy | Security | Status</p>
+        </div>
+    </footer>
+
+</body>
+</html>
