@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Availability | Khademni</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <main class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- PAGE TITLE -->
+    <h1 class="text-2xl font-bold mb-6">Availability Schedule</h1>
+
+    <!-- SELECT DAYS -->
+    <section class="bg-white rounded-xl shadow p-6 mb-8">
+      <h2 class="font-semibold mb-4">Select available days</h2>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
+        <button class="bg-[#043873] text-white py-3 rounded-lg font-medium">Mon</button>
+        <button class="border py-3 rounded-lg">Tue</button>
+        <button class="bg-[#043873] text-white py-3 rounded-lg font-medium">Wed</button>
+        <button class="border py-3 rounded-lg">Thu</button>
+        <button class="border py-3 rounded-lg">Fri</button>
+        <button class="border py-3 rounded-lg">Sat</button>
+      </div>
+    </section>
+
+<!-- ADD TIME SLOT -->
+<section class="bg-white rounded-xl shadow p-6 mb-8">
+  <h2 class="font-semibold mb-4">Add time slots</h2>
+
+  <!-- Time Inputs -->
+  <div class="grid md:grid-cols-2 gap-4 mb-4">
+    <!-- From -->
+    <div>
+      <label class="text-sm text-gray-600">From</label>
+      <select class="w-full mt-1 border rounded-lg px-3 py-2">
+        <option>09:00</option>
+        <option>10:00</option>
+        <option>11:00</option>
+      </select>
+    </div>
+
+    <!-- To -->
+    <div>
+      <label class="text-sm text-gray-600">To</label>
+      <input
+        type="time"
+        value="12:00"
+        class="w-full mt-1 border rounded-lg px-3 py-2"
+      >
+    </div>
+  </div>
+
+  <!-- Button UNDER inputs -->
+  <button
+    class="w-full bg-[#043873] text-white py-3 rounded-lg font-medium flex items-center justify-center gap-2"
+  >
+    <span class="material-icons text-base">add</span>
+    Add Time Slot
+  </button>
+</section>
+
+    <!-- CURRENT SCHEDULE -->
+    <section class="bg-white rounded-xl shadow p-6 mb-8">
+      <h2 class="font-semibold mb-4">Current Schedule</h2>
+
+      <div class="border rounded-lg p-4 flex items-center gap-4">
+        <span class="material-icons text-[#043873]">calendar_today</span>
+        <div>
+          <p class="font-medium">Monday</p>
+          <p class="text-sm text-gray-600">08:00 – 12:00</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK PRESETS -->
+    <section class="bg-white rounded-xl shadow p-6">
+      <h2 class="font-semibold mb-4">Quick Presets</h2>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <button class="bg-[#043873] text-white rounded-lg p-4 text-left">
+          <p class="font-medium">Weekday Mornings</p>
+          <p class="text-sm opacity-80">Mon–Fri · 8AM–12PM</p>
+        </button>
+
+        <button class="bg-[#043873] text-white rounded-lg p-4 text-left">
+          <p class="font-medium">Weekday Afternoons</p>
+          <p class="text-sm opacity-80">Mon–Fri · 2PM–6PM</p>
+        </button>
+
+        <button class="bg-[#043873] text-white rounded-lg p-4 text-left">
+          <p class="font-medium">Weekends</p>
+          <p class="text-sm opacity-80">Sat–Sun · Flexible</p>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <!-- JS include -->
+  <script src="../js/include.js"></script>
+
+</body>
+</html>
