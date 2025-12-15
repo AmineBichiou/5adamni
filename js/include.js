@@ -1,15 +1,23 @@
-async function loadHTML(id, file) {
-  try {
-    const res = await fetch(file);
-    if (!res.ok) throw new Error(`Failed to load ${file}`);
-    const html = await res.text();
-    document.getElementById(id).innerHTML = html;
-  } catch (err) {
-    console.error(err);
-  }
+// include.js - UPDATED VERSION
+async function loadHTML(elementId, filePath) {
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`Failed to load ${filePath}`);
+        }
+        const html = await response.text();
+        document.getElementById(elementId).innerHTML = html;
+        
+        // Re-initialize any dynamic content if needed
+        console.log(`Loaded: ${filePath}`);
+    } catch (error) {
+        console.error('Error loading HTML:', error);
+    }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadHTML("header", "./partials/header.html");
-  loadHTML("footer", "./partials/footer.html");
+// Load header and footer with root-relative paths
+document.addEventListener('DOMContentLoaded', function() {
+    // Use root paths starting with /
+    loadHTML('header', '/partials/header.html');
+    loadHTML('footer', '/partials/footer.html');
 });
