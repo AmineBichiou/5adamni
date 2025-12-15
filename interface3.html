@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Activity Overview</title>
+    <title>Khademni - Dashboard</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -12,11 +12,15 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             background-color: #f8fafc;
             color: #334155;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         
         .dashboard-container {
             max-width: 1000px;
             margin: 0 auto;
+            flex: 1;
         }
         
         /* Card styling */
@@ -156,271 +160,404 @@
         .apply-btn:hover {
             background-color: #2563eb;
         }
+        
+        /* Footer styling */
+        footer {
+            background-color: #0B3A6F;
+            color: white;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            margin-top: auto;
+        }
+        
+        .footer-container {
+            max-width: 7xl;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            text-align: center;
+        }
     </style>
 </head>
-<body class="p-4 md:p-6">
-    <div class="dashboard-container">
-        <!-- Header -->
-        <header class="mb-8">
-            <h1 class="text-2xl font-bold text-gray-800 mb-2">Dashboard</h1>
-            <p class="text-gray-600">Welcome back! Here's your activity overview</p>
-        </header>
-        
-        <!-- First Section: Three Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <!-- Available Jobs Card -->
-            <div class="card p-6">
-                <div class="flex items-center">
-                    <img src="work_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Jobs Icon" class="w-6 h-6 mr-4">
-                    <div class="mr-4">
-                        <h2 class="text-lg font-semibold text-gray-800">Available Jobs</h2>
-                    </div>
-                    <div class="text-3xl font-bold text-gray-800 ml-auto">24</div>
-                </div>
-            </div>
-            
-            <!-- Applied Card -->
-            <div class="card p-6">
-                <div class="flex items-center">
-                    <img src="av_timer_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Applied Icon" class="w-6 h-6 mr-4">
-                    <div class="mr-4">
-                        <h2 class="text-lg font-semibold text-gray-800">Applied</h2>
-                    </div>
-                    <div class="text-3xl font-bold text-gray-800 ml-auto">12</div>
-                </div>
-            </div>
-            
-            <!-- Completed Card -->
-            <div class="card p-6">
-                <div class="flex items-center">
-                    <img src="check_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Completed Icon" class="w-6 h-6 mr-4">
-                    <div class="mr-4">
-                        <h2 class="text-lg font-semibold text-gray-800">Completed</h2>
-                    </div>
-                    <div class="text-3xl font-bold text-gray-800 ml-auto">8</div>
-                </div>
-            </div>
+
+<body>
+    <!-- Header Section -->
+    <header class="bg-[#0B3A6F] text-white">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <h1 class="text-xl font-bold">Khademni</h1>
+
+            <!-- Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-yellow-300">Offres compatibles</a>
+                <a href="#" class="hover:text-yellow-300">Profil & Expérience</a>
+                <a href="#" class="hover:text-yellow-300">Équilibre Travail</a>
+            </nav>
+
+            <!-- Login -->
+            <button class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300">
+                Login
+            </button>
         </div>
-        
-        <!-- Weekly Activity with Column Chart -->
-        <div class="card p-6 mb-8">
-            <h2 class="text-lg font-semibold text-gray-800 mb-4">Weekly Activity</h2>
-            <p class="text-gray-600 mb-6">Tasks Completed this week</p>
+    </header>
+
+    <!-- Main Dashboard Content -->
+    <div class="p-4 md:p-6">
+        <div class="dashboard-container">
+            <!-- Dashboard Header -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-gray-800 mb-2">Dashboard</h1>
+                <p class="text-gray-600">Welcome back! Here's your activity overview</p>
+            </div>
             
-            <!-- Column Chart Container -->
-            <div class="chart-container">
-                <!-- Chart grid lines -->
-                <div class="chart-grid-line" style="top: 20%;"></div>
-                <div class="chart-grid-line" style="top: 40%;"></div>
-                <div class="chart-grid-line" style="top: 60%;"></div>
-                <div class="chart-grid-line" style="top: 80%;"></div>
-                
-                <!-- Monday Column -->
-                <div class="chart-column">
-                    <div class="chart-bar" id="mon-bar" style="height: 65%;">
-                        <span class="chart-bar-value">6</span>
+            <!-- First Section: Three Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- Available Jobs Card -->
+                <div class="card p-6">
+                    <div class="flex items-center">
+                        <img src="./images/work_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Available Jobs Icon" class="w-6 h-6 mr-4">
+                        <div class="mr-4">
+                            <h2 class="text-lg font-semibold text-gray-800">Available Jobs</h2>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-800 ml-auto">24</div>
                     </div>
-                    <div class="day-label">Mon</div>
                 </div>
                 
-                <!-- Tuesday Column -->
-                <div class="chart-column">
-                    <div class="chart-bar" id="tue-bar" style="height: 85%;">
-                        <span class="chart-bar-value">9</span>
+                <!-- Applied Card -->
+                <div class="card p-6">
+                    <div class="flex items-center">
+                        <img src="./images/av_timer_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Applied Icon" class="w-6 h-6 mr-4">
+                        <div class="mr-4">
+                            <h2 class="text-lg font-semibold text-gray-800">Applied</h2>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-800 ml-auto">12</div>
                     </div>
-                    <div class="day-label">Tue</div>
                 </div>
                 
-                <!-- Wednesday Column -->
-                <div class="chart-column">
-                    <div class="chart-bar" id="wed-bar" style="height: 45%;">
-                        <span class="chart-bar-value">4</span>
+                <!-- Completed Card -->
+                <div class="card p-6">
+                    <div class="flex items-center">
+                        <img src="./images/check_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Completed Icon" class="w-6 h-6 mr-4">
+                        <div class="mr-4">
+                            <h2 class="text-lg font-semibold text-gray-800">Completed</h2>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-800 ml-auto">8</div>
                     </div>
-                    <div class="day-label">Wed</div>
-                </div>
-                
-                <!-- Thursday Column -->
-                <div class="chart-column">
-                    <div class="chart-bar" id="thu-bar" style="height: 70%;">
-                        <span class="chart-bar-value">7</span>
-                    </div>
-                    <div class="day-label">Thur</div>
-                </div>
-                
-                <!-- Friday Column -->
-                <div class="chart-column">
-                    <div class="chart-bar" id="fri-bar" style="height: 90%;">
-                        <span class="chart-bar-value">10</span>
-                    </div>
-                    <div class="day-label">Fri</div>
-                </div>
-                
-                <!-- Saturday Column -->
-                <div class="chart-column">
-                    <div class="chart-bar" id="sat-bar" style="height: 40%;">
-                        <span class="chart-bar-value">3</span>
-                    </div>
-                    <div class="day-label">Sat</div>
-                </div>
-                
-                <!-- Sunday Column -->
-                <div class="chart-column">
-                    <div class="chart-bar" id="sun-bar" style="height: 55%;">
-                        <span class="chart-bar-value">5</span>
-                    </div>
-                    <div class="day-label">Sun</div>
                 </div>
             </div>
             
-            <!-- Weekly Stats -->
-            <div class="mt-8 pt-6 border-t border-gray-100 flex justify-between items-center">
+            <!-- Weekly Activity with Column Chart -->
+            <div class="card p-6 mb-8">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">Weekly Activity</h2>
+                <p class="text-gray-600 mb-6">Tasks Completed this week</p>
+                
+                <!-- Column Chart Container -->
+                <div class="chart-container">
+                    <!-- Chart grid lines -->
+                    <div class="chart-grid-line" style="top: 20%;"></div>
+                    <div class="chart-grid-line" style="top: 40%;"></div>
+                    <div class="chart-grid-line" style="top: 60%;"></div>
+                    <div class="chart-grid-line" style="top: 80%;"></div>
+                    
+                    <!-- Monday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="mon-bar" style="height: 65%;">
+                            <span class="chart-bar-value">6</span>
+                        </div>
+                        <div class="day-label">Mon</div>
+                    </div>
+                    
+                    <!-- Tuesday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="tue-bar" style="height: 85%;">
+                            <span class="chart-bar-value">9</span>
+                        </div>
+                        <div class="day-label">Tue</div>
+                    </div>
+                    
+                    <!-- Wednesday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="wed-bar" style="height: 45%;">
+                            <span class="chart-bar-value">4</span>
+                        </div>
+                        <div class="day-label">Wed</div>
+                    </div>
+                    
+                    <!-- Thursday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="thu-bar" style="height: 70%;">
+                            <span class="chart-bar-value">7</span>
+                        </div>
+                        <div class="day-label">Thur</div>
+                    </div>
+                    
+                    <!-- Friday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="fri-bar" style="height: 90%;">
+                            <span class="chart-bar-value">10</span>
+                        </div>
+                        <div class="day-label">Fri</div>
+                    </div>
+                    
+                    <!-- Saturday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="sat-bar" style="height: 40%;">
+                            <span class="chart-bar-value">3</span>
+                        </div>
+                        <div class="day-label">Sat</div>
+                    </div>
+                    
+                    <!-- Sunday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="sun-bar" style="height: 55%;">
+                            <span class="chart-bar-value">5</span>
+                        </div>
+                        <div class="day-label">Sun</div>
+                    </div>
+                </div>
+                
+                <!-- Weekly Stats -->
+                <div class="mt-8 pt-6 border-t border-gray-100 flex justify-between items-center">
+                    <div>
+                        <p class="text-gray-600 text-sm">Total completed this week</p>
+                        <p class="text-2xl font-bold text-gray-800">44 <span class="text-lg text-gray-600">tasks</span></p>
+                    </div>
+                    <div class="text-green-600 text-sm font-medium">
+                        <i class="fas fa-arrow-up mr-1"></i> 12% from last week
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Third Section: Recent Activity and Quick Stats -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                <!-- Left Column: Recent Activity -->
+                <div class="lg:col-span-2">
+                    <div class="card p-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">Recent Activity</h2>
+                        
+                        <!-- Activity 1 -->
+                        <div class="mb-6">
+                            <div class="flex justify-between items-start mb-1">
+                                <div class="flex items-center">
+                                    <span class="time-indicator bg-blue-500"></span>
+                                    <img src="./images/check_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Activity Icon" class="w-5 h-5 mr-2">
+                                    <span class="font-medium text-gray-800">Completed Python tutoring session</span>
+                                </div>
+                                <span class="text-gray-500 text-sm">2 hours ago</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Divider -->
+                        <div class="divider mb-6"></div>
+                        
+                        <!-- Activity 2 -->
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <div class="flex items-center">
+                                    <span class="time-indicator bg-green-500"></span>
+                                    <img src="./images/business_center_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Activity Icon" class="w-5 h-5 mr-2">
+                                    <span class="font-medium text-gray-800">Applied: Web Development task</span>
+                                </div>
+                                <span class="text-gray-500 text-sm">5 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Quick Stats -->
                 <div>
-                    <p class="text-gray-600 text-sm">Total completed this week</p>
-                    <p class="text-2xl font-bold text-gray-800">44 <span class="text-lg text-gray-600">tasks</span></p>
-                </div>
-                <div class="text-green-600 text-sm font-medium">
-                    <i class="fas fa-arrow-up mr-1"></i> 12% from last week
-                </div>
-            </div>
-        </div>
-        
-        <!-- Third Section: Recent Activity and Quick Stats -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-            <!-- Left Column: Recent Activity -->
-            <div class="lg:col-span-2">
-                <div class="card p-6">
-                    <h2 class="text-lg font-semibold text-gray-800 mb-4">Recent Activity</h2>
-                    
-                    <!-- Activity 1 -->
-                    <div class="mb-6">
-                        <div class="flex justify-between items-start mb-1">
-                            <div class="flex items-center">
-                                <span class="time-indicator bg-blue-500"></span>
-                                <img src="check_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Completed Icon" class="w-4 h-4 mr-2">
-                                <span class="font-medium text-gray-800">Completed Python tutoring session</span>
+                    <div class="card p-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">Quick Stats</h2>
+                        
+                        <!-- Stats Items -->
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-briefcase text-blue-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-gray-700">Active Applications</span>
+                                </div>
+                                <span class="font-bold text-gray-800">12</span>
                             </div>
-                            <span class="text-gray-500 text-sm">2 hours ago</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Divider -->
-                    <div class="divider mb-6"></div>
-                    
-                    <!-- Activity 2 -->
-                    <div>
-                        <div class="flex justify-between items-start mb-1">
-                            <div class="flex items-center">
-                                <span class="time-indicator bg-green-500"></span>
-                                <img src ="business_center_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Applied Icon" class="w-4 h-4 mr-2">
-                                <span class="font-medium text-gray-800">Applied: Web Development task</span>
+                            
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-check-circle text-green-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-gray-700">Completed Tasks</span>
+                                </div>
+                                <span class="font-bold text-gray-800">45</span>
                             </div>
-                            <span class="text-gray-500 text-sm">5 hours ago</span>
+                            
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-clock text-purple-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-gray-700">Hours This Week</span>
+                                </div>
+                                <span class="font-bold text-gray-800">32</span>
+                            </div>
+                            
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-chart-line text-yellow-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-gray-700">Success Rate</span>
+                                </div>
+                                <span class="font-bold text-gray-800">85%</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Right Column: Quick Stats -->
-            <div>
-                <div class="card p-6">
-                    <h2 class="text-lg font-semibold text-gray-800 mb-4">Quick Stats</h2>
+            <!-- Recommended for You Section - Updated to match image structure -->
+            <div class="card p-6">
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-2">Recommended for You</h2>
+                    <p class="text-gray-600">Based on your skills and availability</p>
+                </div>
+                
+                <!-- Job Card matching the image structure -->
+                <div class="job-card">
+                    <div class="mb-4">
+                        <h3 class="font-bold text-gray-800 text-xl mb-1">Frontend Developer - React</h3>
+                        <p class="text-gray-600">TechStart Inc</p>
+                    </div>
                     
-                    <!-- Stats Items -->
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-                                    <i class="fas fa-briefcase text-blue-600 text-sm"></i>
-                                </div>
-                                <span class="text-gray-700">Active Applications</span>
-                            </div>
-                            <span class="font-bold text-gray-800">12</span>
+                    <!-- Job details row -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-gray-400 mr-2"></i>
+                            <span class="text-gray-700">2-3 hours</span>
                         </div>
-                        
-                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                                    <i class="fas fa-check-circle text-green-600 text-sm"></i>
-                                </div>
-                                <span class="text-gray-700">Completed Tasks</span>
-                            </div>
-                            <span class="font-bold text-gray-800">45</span>
+                        <div class="flex items-center">
+                            <i class="fas fa-dollar-sign text-gray-400 mr-2"></i>
+                            <span class="font-bold text-gray-800">$45<span class="font-normal text-gray-600">/hr</span></span>
                         </div>
-                        
-                        <div class="flex justify-between items-center pb-3 border-b border-gray-100">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center mr-3">
-                                    <i class="fas fa-clock text-purple-600 text-sm"></i>
-                                </div>
-                                <span class="text-gray-700">Hours This Week</span>
-                            </div>
-                            <span class="font-bold text-gray-800">32</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
-                                    <i class="fas fa-chart-line text-yellow-600 text-sm"></i>
-                                </div>
-                                <span class="text-gray-700">Success Rate</span>
-                            </div>
-                            <span class="font-bold text-gray-800">85%</span>
+                        <div class="flex items-center">
+                            <i class="fas fa-laptop-house text-gray-400 mr-2"></i>
+                            <span class="text-gray-700">Remote</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Recommended for You Section - Updated to match image structure -->
-        <div class="card p-6">
-            <div class="mb-6">
-                <h2 class="text-xl font-semibold text-gray-800 mb-2">Recommended for You</h2>
-                <p class="text-gray-600">Based on your skills and availability</p>
-            </div>
-            
-            <!-- Job Card matching the image structure -->
-            <div class="job-card">
-                <div class="mb-4">
-                    <h3 class="font-bold text-gray-800 text-xl mb-1">Frontend Developer - React</h3>
-                    <p class="text-gray-600">TechStart Inc</p>
-                </div>
-                
-                <!-- Job details row -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                    <div class="flex items-center">
-                        <i class="fas fa-clock text-gray-400 mr-2"></i>
-                        <span class="text-gray-700">2-3 hours</span>
+                    
+                    <!-- Tags row -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="job-tag">React</span>
+                        <span class="job-tag">[Typescript]</span>
                     </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-dollar-sign text-gray-400 mr-2"></i>
-                        <span class="font-bold text-gray-800">$45<span class="font-normal text-gray-600">/hr</span></span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-laptop-house text-gray-400 mr-2"></i>
-                        <span class="text-gray-700">Remote</span>
-                    </div>
-                </div>
-                
-                <!-- Tags row -->
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="job-tag">React</span>
-                    <span class="job-tag">[Typescript]</span>
-                </div>
-                
-                <!-- Match and Apply row -->
-                <div class="flex flex-col md:flex-row md:items-center justify-between">
-                    <div class="mb-4 md:mb-0">
-                        <span class="match-badge">Match: 95%</span>
-                    </div>
-                    <div>
-                        <button class="apply-btn">
-                            Apply
-                        </button>
+                    
+                    <!-- Match and Apply row -->
+                    <div class="flex flex-col md:flex-row md:items-center justify-between">
+                        <div class="mb-4 md:mb-0">
+                            <span class="match-badge">Match: 95%</span>
+                        </div>
+                        <div>
+                            <button class="apply-btn">
+                                Apply
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- TOP -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+
+      <!-- BRAND -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.3L5 7l7-3.3L19 7l-7 2.3zM2 17l10 5 10-5"/>
+          </svg>
+          <span class="text-lg font-semibold">Khademni</span>
+        </div>
+
+        <p class="text-xs leading-5 text-blue-200 max-w-xs">
+          Khademni was created for the new ways we live and work.
+          We make a better workspace around the world.
+        </p>
+      </div>
+
+      <!-- PRODUCT -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Product</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Overview</a></li>
+          <li><a href="#" class="hover:text-white">Pricing</a></li>
+          <li><a href="#" class="hover:text-white">Customer stories</a></li>
+        </ul>
+      </div>
+
+      <!-- RESOURCES -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Resources</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Guides & tutorials</a></li>
+          <li><a href="#" class="hover:text-white">Help center</a></li>
+        </ul>
+      </div>
+
+      <!-- COMPANY -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Company</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">About us</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Media kit</a></li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Try It Today</h4>
+        <p class="text-xs text-blue-200 mb-3 leading-5">
+          Get started for free. Add your whole team as your needs grow.
+        </p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-xs font-medium px-4 py-2 rounded-md">
+          Start today →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="border-t border-blue-800 mt-8 pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-blue-200">
+
+      <!-- LEFT -->
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="flex items-center gap-1 cursor-pointer">
+          🌐 English
+        </span>
+        <a href="#" class="hover:text-white">Terms & privacy</a>
+        <a href="#" class="hover:text-white">Security</a>
+        <a href="#" class="hover:text-white">Status</a>
+        <span>© 2025 Khademni LLC.</span>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-white">f</a>
+        <a href="#" class="hover:text-white">t</a>
+        <a href="#" class="hover:text-white">in</a>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
 
     <!-- JavaScript for column chart interactivity and random data generation -->
     <script>
@@ -458,7 +595,7 @@
                 
                 // Update total tasks display
                 const totalTasksElement = document.querySelector('.text-2xl.font-bold.text-gray-800');
-                if (totalTasksElement) {
+                if (totalTasksElement && totalTasksElement.textContent.includes('tasks')) {
                     totalTasksElement.innerHTML = `${totalTasks} <span class="text-lg text-gray-600">tasks</span>`;
                 }
                 
@@ -507,7 +644,9 @@
             });
             
             // Add button after the existing footer
-            existingFooter.parentNode.insertBefore(refreshButton, existingFooter.nextSibling);
+            if (existingFooter) {
+                existingFooter.parentNode.insertBefore(refreshButton, existingFooter.nextSibling);
+            }
             
             // Add y-axis labels (optional, for better chart readability)
             const chartContainer = document.querySelector('.chart-container');
@@ -522,6 +661,35 @@
                 <div>0</div>
             `;
             chartContainer.appendChild(yAxisLabels);
+            
+            // Header login button functionality
+            const loginBtn = document.querySelector('header button');
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function() {
+                    alert('Login functionality would open a login modal or redirect to login page.');
+                });
+            }
+            
+            // Navigation links functionality
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageName = this.textContent;
+                    alert(`Navigating to ${pageName} page. This would load the appropriate content.`);
+                });
+            });
+            
+            // Apply button functionality
+            const applyBtn = document.querySelector('.apply-btn');
+            if (applyBtn) {
+                applyBtn.addEventListener('click', function() {
+                    alert('Application submitted successfully! The employer will contact you soon.');
+                    this.textContent = 'Applied ✓';
+                    this.style.backgroundColor = '#10b981';
+                    this.disabled = true;
+                });
+            }
         });
     </script>
 </body>
