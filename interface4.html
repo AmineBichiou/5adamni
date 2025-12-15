@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khademni - Task Finder</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to match the image exactly */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+        
+        /* Card styling */
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+        }
+        
+        /* Stat card styling */
+        .stat-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+        }
+        
+        /* Task card styling */
+        .task-card {
+            background-color: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+        
+        .task-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Easy tag styling */
+        .easy-tag {
+            background-color: #dcfce7;
+            color: #166534;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        /* Filter button styling */
+        .filter-btn {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 0.875rem;
+            color: #64748b;
+            transition: all 0.2s ease;
+        }
+        
+        .filter-btn:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        
+        .filter-btn.active {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        /* Apply button styling */
+        .apply-btn {
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 8px;
+            font-weight: 500;
+            padding: 10px 24px;
+            transition: background-color 0.2s;
+        }
+        
+        .apply-btn:hover {
+            background-color: #2563eb;
+        }
+        
+        /* Notification button styling */
+        .notification-btn {
+            background-color: #0f172a;
+            color: white;
+            border-radius: 8px;
+            font-weight: 500;
+            padding: 12px 24px;
+            transition: background-color 0.2s;
+        }
+        
+        .notification-btn:hover {
+            background-color: #1e293b;
+        }
+        
+        /* Divider line */
+        .divider {
+            height: 1px;
+            background-color: #e2e8f0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="bg-[#0B3A6F] text-white">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <h1 class="text-xl font-bold">Khademni</h1>
+
+            <!-- Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-yellow-300">Offres compatibles</a>
+                <a href="#" class="hover:text-yellow-300">Profil & Expérience</a>
+                <a href="#" class="hover:text-yellow-300">Équilibre Travail</a>
+            </nav>
+
+            <!-- Login -->
+            <button class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300">
+                Login
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="p-4 md:p-6">
+        <div class="dashboard-container">
+            <!-- Page Header Section -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-gray-900 mb-2">Find quick and easy tasks for today</h1>
+                <p class="text-gray-600">Tasks that fit your schedule and boost your income or academic progress</p>
+            </div>
+            
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left Column - Main Content -->
+                <div class="lg:col-span-2">
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <!-- Available Today Card -->
+                        <div class="stat-card">
+                            <div class="flex flex-col">
+                                <span class="text-gray-600 text-sm mb-2">Available Today</span>
+                                <div class="flex items-end">
+                                    <span class="text-3xl font-bold text-gray-900 mr-2">12</span>
+                                    <span class="text-green-600 text-sm font-medium mb-1">
+                                        <i class="fas fa-arrow-up mr-1"></i> 2 new
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Avg. Payment Card -->
+                        <div class="stat-card">
+                            <div class="flex flex-col">
+                                <span class="text-gray-600 text-sm mb-2">Avg. Payment</span>
+                                <div class="flex items-end">
+                                    <span class="text-3xl font-bold text-gray-900 mr-2">$42</span>
+                                    <span class="text-green-600 text-sm font-medium mb-1">
+                                        <i class="fas fa-arrow-up mr-1"></i> 5%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Tasks Card -->
+                        <div class="stat-card">
+                            <div class="flex flex-col">
+                                <span class="text-gray-600 text-sm mb-2">Quick Tasks</span>
+                                <div class="flex items-end">
+                                    <span class="text-3xl font-bold text-gray-900 mr-2">1</span>
+                                    <span class="text-gray-500 text-sm mb-1">under 1 hour</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Filter Section -->
+                    <div class="mb-6">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-2 md:mb-0">Filter: All Tasks</h2>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-gray-600 text-sm">Showing 1 of 12 tasks</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Filter Buttons -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <button class="filter-btn active">All Tasks</button>
+                            <button class="filter-btn">Urgent Only</button>
+                            <button class="filter-btn">Remote</button>
+                            <button class="filter-btn">On Campus</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Task Card -->
+                    <div class="task-card mb-6">
+                        <!-- Task Header -->
+                        <div class="flex flex-col md:flex-row md:items-start justify-between mb-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Need help sorting Excel data</h3>
+                                <div class="flex items-center mb-4">
+                                    <span class="text-gray-700 mr-4">Local Business</span>
+                                    <span class="easy-tag">Easy</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center md:justify-end mt-2 md:mt-0">
+                                <div class="text-right">
+                                    <div class="flex items-center text-gray-600">
+                                        <i class="fas fa-clock mr-2"></i>
+                                        <span>08:00 AM - 10:00 AM</span>
+                                    </div>
+                                    <div class="text-lg font-bold text-gray-900 mt-1">$30 <span class="text-gray-600 font-normal">(2 hours)</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Task Details -->
+                        <div class="mb-6">
+                            <div class="flex items-center text-gray-600 mb-4">
+                                <i class="fas fa-laptop-house mr-2"></i>
+                                <span>Remote</span>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="font-medium text-gray-800 mb-2">Excel Data Entry</h4>
+                                <p class="text-gray-600">Sort and organize sales data in Excel spreadsheet. Basic formatting and data validation required.</p>
+                            </div>
+                            
+                            <!-- Skills/Tags -->
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Excel</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Data Entry</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Spreadsheets</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Company and Apply Button -->
+                        <div class="flex flex-col md:flex-row md:items-center justify-between">
+                            <div class="flex items-center mb-4 md:mb-0">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <span class="text-blue-600 font-bold">UP</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-gray-900">UPOUT</div>
+                                    <div class="text-gray-500 text-sm">Posted 2 hours ago</div>
+                                </div>
+                            </div>
+                            
+                            <button class="apply-btn">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- View More Button -->
+                    <div class="text-center">
+                        <button class="text-blue-600 hover:text-blue-800 font-medium">
+                            View More Tasks <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Stay Updated Section -->
+                <div>
+                    <div class="card p-6">
+                        <div class="mb-6">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-2">Stay Updated</h2>
+                            <p class="text-gray-600">Get notified when new tasks matching your profile are posted</p>
+                        </div>
+                        
+                        <!-- Notification Settings -->
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                        <i class="fas fa-bell text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-gray-900">Push Notifications</div>
+                                        <div class="text-gray-500 text-sm">Instant alerts on new tasks</div>
+                                    </div>
+                                </div>
+                                <div class="relative">
+                                    <input type="checkbox" id="push-notifications" class="sr-only" checked>
+                                    <label for="push-notifications" class="toggle-label">
+                                        <div class="toggle-bg bg-blue-600"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                                        <i class="fas fa-envelope text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-gray-900">Email Alerts</div>
+                                        <div class="text-gray-500 text-sm">Daily task digest</div>
+                                    </div>
+                                </div>
+                                <div class="relative">
+                                    <input type="checkbox" id="email-alerts" class="sr-only" checked>
+                                    <label for="email-alerts" class="toggle-label">
+                                        <div class="toggle-bg bg-green-600"></div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                        </div>
+                        
+                        <!-- Enable Notifications Button -->
+                        <button class="notification-btn w-full">
+                            <i class="fas fa-bell mr-2"></i> Enable Notifications
+                        </button>
+                        
+                        <!-- Divider -->
+                        <div class="divider my-6"></div>
+                        
+                        <!-- Recent Activity -->
+                        <div>
+                            <h3 class="font-medium text-gray-900 mb-4">Recent Activity</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-check text-green-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-900 text-sm">Applied to "Social Media Post"</div>
+                                        <div class="text-gray-500 text-xs">2 hours ago</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-eye text-blue-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-900 text-sm">Viewed 5 new tasks</div>
+                                        <div class="text-gray-500 text-xs">Yesterday</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-star text-purple-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-900 text-sm">Rated 5 stars for "Data Entry"</div>
+                                        <div class="text-gray-500 text-xs">2 days ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- TOP -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+
+      <!-- BRAND -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.3L5 7l7-3.3L19 7l-7 2.3zM2 17l10 5 10-5"/>
+          </svg>
+          <span class="text-lg font-semibold">Khademni</span>
+        </div>
+
+        <p class="text-xs leading-5 text-blue-200 max-w-xs">
+          Khademni was created for the new ways we live and work.
+          We make a better workspace around the world.
+        </p>
+      </div>
+
+      <!-- PRODUCT -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Product</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Overview</a></li>
+          <li><a href="#" class="hover:text-white">Pricing</a></li>
+          <li><a href="#" class="hover:text-white">Customer stories</a></li>
+        </ul>
+      </div>
+
+      <!-- RESOURCES -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Resources</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Guides & tutorials</a></li>
+          <li><a href="#" class="hover:text-white">Help center</a></li>
+        </ul>
+      </div>
+
+      <!-- COMPANY -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Company</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">About us</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Media kit</a></li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Try It Today</h4>
+        <p class="text-xs text-blue-200 mb-3 leading-5">
+          Get started for free. Add your whole team as your needs grow.
+        </p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-xs font-medium px-4 py-2 rounded-md">
+          Start today →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="border-t border-blue-800 mt-8 pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-blue-200">
+
+      <!-- LEFT -->
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="flex items-center gap-1 cursor-pointer">
+          🌐 English
+        </span>
+        <a href="#" class="hover:text-white">Terms & privacy</a>
+        <a href="#" class="hover:text-white">Security</a>
+        <a href="#" class="hover:text-white">Status</a>
+        <span>© 2025 Khademni LLC.</span>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-white">f</a>
+        <a href="#" class="hover:text-white">t</a>
+        <a href="#" class="hover:text-white">in</a>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+
+    <!-- Custom toggle switch styling -->
+    <style>
+        .toggle-label {
+            display: block;
+            width: 44px;
+            height: 24px;
+            border-radius: 12px;
+            background-color: #e2e8f0;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+        
+        .toggle-bg {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        input:checked + .toggle-label .toggle-bg {
+            transform: translateX(20px);
+        }
+        
+        input:checked + .toggle-label {
+            background-color: rgba(59, 130, 246, 0.2);
+        }
+    </style>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header login button functionality
+            const loginBtn = document.querySelector('header button');
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function() {
+                    alert('Login functionality would open a login modal or redirect to login page.');
+                });
+            }
+            
+            // Navigation links functionality
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageName = this.textContent;
+                    alert(`Navigating to ${pageName} page. This would load the appropriate content.`);
+                });
+            });
+            
+            // Filter button functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Update filter text
+                    const filterText = document.querySelector('h2.text-lg.font-semibold');
+                    if (filterText) {
+                        filterText.textContent = `Filter: ${this.textContent}`;
+                    }
+                });
+            });
+            
+            // Toggle switch functionality
+            const toggleSwitches = document.querySelectorAll('input[type="checkbox"]');
+            toggleSwitches.forEach(switchEl => {
+                switchEl.addEventListener('change', function() {
+                    const toggleBg = this.nextElementSibling.querySelector('.toggle-bg');
+                    const toggleLabel = this.nextElementSibling;
+                    
+                    if (this.checked) {
+                        if (this.id === 'push-notifications') {
+                            toggleBg.style.backgroundColor = '#3b82f6';
+                            toggleLabel.style.backgroundColor = 'rgba(59, 130, 246, 0.2)';
+                        } else if (this.id === 'email-alerts') {
+                            toggleBg.style.backgroundColor = '#10b981';
+                            toggleLabel.style.backgroundColor = 'rgba(16, 185, 129, 0.2)';
+                        } else if (this.id === 'sms-alerts') {
+                            toggleBg.style.backgroundColor = '#8b5cf6';
+                            toggleLabel.style.backgroundColor = 'rgba(139, 92, 246, 0.2)';
+                        }
+                    } else {
+                        toggleBg.style.backgroundColor = '#cbd5e1';
+                        toggleLabel.style.backgroundColor = '#e2e8f0';
+                    }
+                });
+            });
+            
+            // Apply Now button functionality
+            const applyButton = document.querySelector('.apply-btn');
+            if (applyButton) {
+                applyButton.addEventListener('click', function() {
+                    alert('Application submitted successfully! The task poster will contact you soon.');
+                    this.textContent = 'Applied ✓';
+                    this.style.backgroundColor = '#10b981';
+                    this.disabled = true;
+                });
+            }
+            
+            // Enable Notifications button functionality
+            const notificationButton = document.querySelector('.notification-btn');
+            if (notificationButton) {
+                notificationButton.addEventListener('click', function() {
+                    if (Notification.permission === 'granted') {
+                        alert('Notifications are already enabled!');
+                    } else if (Notification.permission !== 'denied') {
+                        Notification.requestPermission().then(permission => {
+                            if (permission === 'granted') {
+                                alert('Notifications enabled successfully!');
+                                this.innerHTML = '<i class="fas fa-bell-slash mr-2"></i> Disable Notifications';
+                            }
+                        });
+                    }
+                });
+            }
+            
+            // View More Tasks button functionality
+            const viewMoreButton = document.querySelector('button.text-blue-600');
+            if (viewMoreButton) {
+                viewMoreButton.addEventListener('click', function() {
+                    // Simulate loading more tasks
+                    const taskCard = document.querySelector('.task-card');
+                    const newTaskCard = taskCard.cloneNode(true);
+                    newTaskCard.querySelector('h3').textContent = 'Social Media Content Creation';
+                    newTaskCard.querySelector('.text-gray-700').textContent = 'Marketing Agency';
+                    newTaskCard.querySelector('.text-lg.font-bold').innerHTML = '$45 <span class="text-gray-600 font-normal">(3 hours)</span>';
+                    newTaskCard.querySelector('.apply-btn').textContent = 'Apply Now';
+                    newTaskCard.querySelector('.apply-btn').style.backgroundColor = '#3b82f6';
+                    newTaskCard.querySelector('.apply-btn').disabled = false;
+                    
+                    taskCard.parentNode.insertBefore(newTaskCard, viewMoreButton.parentNode);
+                    
+                    alert('Loaded 1 more task. 2 of 12 tasks now showing.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khademni - Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to match the image exactly */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            flex: 1;
+        }
+        
+        /* Card styling */
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        /* Divider line */
+        .divider {
+            height: 1px;
+            background-color: #e2e8f0;
+            width: 100%;
+        }
+        
+        /* Time indicator circles */
+        .time-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        /* Column chart styles */
+        .chart-container {
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: 0 10px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .chart-column {
+            width: 11%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+        }
+        
+        .chart-bar {
+            width: 32px;
+            border-radius: 4px 4px 0 0;
+            background-color: #3b82f6;
+            transition: all 0.3s ease;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        
+        .chart-bar:hover {
+            background-color: #2563eb;
+            transform: scaleY(1.05);
+        }
+        
+        .chart-bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1e40af;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .chart-bar:hover .chart-bar-value {
+            opacity: 1;
+        }
+        
+        .day-label {
+            color: #64748b;
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+        
+        /* Chart grid lines */
+        .chart-grid-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            border-top: 1px dashed #e2e8f0;
+        }
+        
+        /* Stats card */
+        .stat-card {
+            padding: 16px;
+            border-radius: 8px;
+            background-color: white;
+            border: 1px solid #e2e8f0;
+        }
+        
+        /* Job card styling matching the image */
+        .job-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: white;
+        }
+        
+        .job-tag {
+            background-color: #f1f5f9;
+            color: #475569;
+            border-radius: 4px;
+            padding: 4px 10px;
+            font-size: 0.875rem;
+            display: inline-block;
+        }
+        
+        .match-badge {
+            background-color: #dcfce7;
+            color: #166534;
+            border-radius: 4px;
+            padding: 6px 12px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .apply-btn {
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            padding: 8px 24px;
+        }
+        
+        .apply-btn:hover {
+            background-color: #2563eb;
+        }
+        
+        /* Footer styling */
+        footer {
+            background-color: #0B3A6F;
+            color: white;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            margin-top: auto;
+        }
+        
+        .footer-container {
+            max-width: 7xl;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="bg-[#0B3A6F] text-white">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <h1 class="text-xl font-bold">Khademni</h1>
+
+            <!-- Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-yellow-300">Offres compatibles</a>
+                <a href="#" class="hover:text-yellow-300">Profil & Expérience</a>
+                <a href="#" class="hover:text-yellow-300">Équilibre Travail</a>
+            </nav>
+
+            <!-- Login -->
+            <button class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300">
+                Login
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Content -->
+    <div class="p-4 md:p-6">
+        <div class="dashboard-container">
+            <!-- Dashboard Header -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-gray-800 mb-2">Dashboard</h1>
+                <p class="text-gray-600">Welcome back! Here's your activity overview</p>
+            </div>
+            
+            <!-- First Section: Three Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- Available Jobs Card -->
+                <div class="card p-6">
+                    <div class="flex items-center">
+                        <img src="./images/work_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Available Jobs Icon" class="w-6 h-6 mr-4">
+                        <div class="mr-4">
+                            <h2 class="text-lg font-semibold text-gray-800">Available Jobs</h2>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-800 ml-auto">24</div>
+                    </div>
+                </div>
+                
+                <!-- Applied Card -->
+                <div class="card p-6">
+                    <div class="flex items-center">
+                        <img src="./images/av_timer_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Applied Icon" class="w-6 h-6 mr-4">
+                        <div class="mr-4">
+                            <h2 class="text-lg font-semibold text-gray-800">Applied</h2>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-800 ml-auto">12</div>
+                    </div>
+                </div>
+                
+                <!-- Completed Card -->
+                <div class="card p-6">
+                    <div class="flex items-center">
+                        <img src="./images/check_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Completed Icon" class="w-6 h-6 mr-4">
+                        <div class="mr-4">
+                            <h2 class="text-lg font-semibold text-gray-800">Completed</h2>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-800 ml-auto">8</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Weekly Activity with Column Chart -->
+            <div class="card p-6 mb-8">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">Weekly Activity</h2>
+                <p class="text-gray-600 mb-6">Tasks Completed this week</p>
+                
+                <!-- Column Chart Container -->
+                <div class="chart-container">
+                    <!-- Chart grid lines -->
+                    <div class="chart-grid-line" style="top: 20%;"></div>
+                    <div class="chart-grid-line" style="top: 40%;"></div>
+                    <div class="chart-grid-line" style="top: 60%;"></div>
+                    <div class="chart-grid-line" style="top: 80%;"></div>
+                    
+                    <!-- Monday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="mon-bar" style="height: 65%;">
+                            <span class="chart-bar-value">6</span>
+                        </div>
+                        <div class="day-label">Mon</div>
+                    </div>
+                    
+                    <!-- Tuesday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="tue-bar" style="height: 85%;">
+                            <span class="chart-bar-value">9</span>
+                        </div>
+                        <div class="day-label">Tue</div>
+                    </div>
+                    
+                    <!-- Wednesday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="wed-bar" style="height: 45%;">
+                            <span class="chart-bar-value">4</span>
+                        </div>
+                        <div class="day-label">Wed</div>
+                    </div>
+                    
+                    <!-- Thursday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="thu-bar" style="height: 70%;">
+                            <span class="chart-bar-value">7</span>
+                        </div>
+                        <div class="day-label">Thur</div>
+                    </div>
+                    
+                    <!-- Friday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="fri-bar" style="height: 90%;">
+                            <span class="chart-bar-value">10</span>
+                        </div>
+                        <div class="day-label">Fri</div>
+                    </div>
+                    
+                    <!-- Saturday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="sat-bar" style="height: 40%;">
+                            <span class="chart-bar-value">3</span>
+                        </div>
+                        <div class="day-label">Sat</div>
+                    </div>
+                    
+                    <!-- Sunday Column -->
+                    <div class="chart-column">
+                        <div class="chart-bar" id="sun-bar" style="height: 55%;">
+                            <span class="chart-bar-value">5</span>
+                        </div>
+                        <div class="day-label">Sun</div>
+                    </div>
+                </div>
+                
+                <!-- Weekly Stats -->
+                <div class="mt-8 pt-6 border-t border-gray-100 flex justify-between items-center">
+                    <div>
+                        <p class="text-gray-600 text-sm">Total completed this week</p>
+                        <p class="text-2xl font-bold text-gray-800">44 <span class="text-lg text-gray-600">tasks</span></p>
+                    </div>
+                    <div class="text-green-600 text-sm font-medium">
+                        <i class="fas fa-arrow-up mr-1"></i> 12% from last week
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Third Section: Recent Activity and Quick Stats -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                <!-- Left Column: Recent Activity -->
+                <div class="lg:col-span-2">
+                    <div class="card p-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">Recent Activity</h2>
+                        
+                        <!-- Activity 1 -->
+                        <div class="mb-6">
+                            <div class="flex justify-between items-start mb-1">
+                                <div class="flex items-center">
+                                    <span class="time-indicator bg-blue-500"></span>
+                                    <img src="./images/check_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Activity Icon" class="w-5 h-5 mr-2">
+                                    <span class="font-medium text-gray-800">Completed Python tutoring session</span>
+                                </div>
+                                <span class="text-gray-500 text-sm">2 hours ago</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Divider -->
+                        <div class="divider mb-6"></div>
+                        
+                        <!-- Activity 2 -->
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <div class="flex items-center">
+                                    <span class="time-indicator bg-green-500"></span>
+                                    <img src="./images/business_center_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Activity Icon" class="w-5 h-5 mr-2">
+                                    <span class="font-medium text-gray-800">Applied: Web Development task</span>
+                                </div>
+                                <span class="text-gray-500 text-sm">5 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Quick Stats -->
+                <div>
+                    <div class="card p-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">Quick Stats</h2>
+                        
+                        <!-- Stats Items -->
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-briefcase text-blue-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-gray-700">Active Applications</span>
+                                </div>
+                                <span class="font-bold text-gray-800">12</span>
+                            </div>
+                            
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-check-circle text-green-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-gray-700">Completed Tasks</span>
+                                </div>
+                                <span class="font-bold text-gray-800">45</span>
+                            </div>
+                            
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-clock text-purple-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-gray-700">Hours This Week</span>
+                                </div>
+                                <span class="font-bold text-gray-800">32</span>
+                            </div>
+                            
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-chart-line text-yellow-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-gray-700">Success Rate</span>
+                                </div>
+                                <span class="font-bold text-gray-800">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recommended for You Section - Updated to match image structure -->
+            <div class="card p-6">
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-2">Recommended for You</h2>
+                    <p class="text-gray-600">Based on your skills and availability</p>
+                </div>
+                
+                <!-- Job Card matching the image structure -->
+                <div class="job-card">
+                    <div class="mb-4">
+                        <h3 class="font-bold text-gray-800 text-xl mb-1">Frontend Developer - React</h3>
+                        <p class="text-gray-600">TechStart Inc</p>
+                    </div>
+                    
+                    <!-- Job details row -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-gray-400 mr-2"></i>
+                            <span class="text-gray-700">2-3 hours</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-dollar-sign text-gray-400 mr-2"></i>
+                            <span class="font-bold text-gray-800">$45<span class="font-normal text-gray-600">/hr</span></span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-laptop-house text-gray-400 mr-2"></i>
+                            <span class="text-gray-700">Remote</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tags row -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="job-tag">React</span>
+                        <span class="job-tag">[Typescript]</span>
+                    </div>
+                    
+                    <!-- Match and Apply row -->
+                    <div class="flex flex-col md:flex-row md:items-center justify-between">
+                        <div class="mb-4 md:mb-0">
+                            <span class="match-badge">Match: 95%</span>
+                        </div>
+                        <div>
+                            <button class="apply-btn">
+                                Apply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- TOP -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+
+      <!-- BRAND -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.3L5 7l7-3.3L19 7l-7 2.3zM2 17l10 5 10-5"/>
+          </svg>
+          <span class="text-lg font-semibold">Khademni</span>
+        </div>
+
+        <p class="text-xs leading-5 text-blue-200 max-w-xs">
+          Khademni was created for the new ways we live and work.
+          We make a better workspace around the world.
+        </p>
+      </div>
+
+      <!-- PRODUCT -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Product</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Overview</a></li>
+          <li><a href="#" class="hover:text-white">Pricing</a></li>
+          <li><a href="#" class="hover:text-white">Customer stories</a></li>
+        </ul>
+      </div>
+
+      <!-- RESOURCES -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Resources</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Guides & tutorials</a></li>
+          <li><a href="#" class="hover:text-white">Help center</a></li>
+        </ul>
+      </div>
+
+      <!-- COMPANY -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Company</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">About us</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Media kit</a></li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Try It Today</h4>
+        <p class="text-xs text-blue-200 mb-3 leading-5">
+          Get started for free. Add your whole team as your needs grow.
+        </p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-xs font-medium px-4 py-2 rounded-md">
+          Start today →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="border-t border-blue-800 mt-8 pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-blue-200">
+
+      <!-- LEFT -->
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="flex items-center gap-1 cursor-pointer">
+          🌐 English
+        </span>
+        <a href="#" class="hover:text-white">Terms & privacy</a>
+        <a href="#" class="hover:text-white">Security</a>
+        <a href="#" class="hover:text-white">Status</a>
+        <span>© 2025 Khademni LLC.</span>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-white">f</a>
+        <a href="#" class="hover:text-white">t</a>
+        <a href="#" class="hover:text-white">in</a>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+
+    <!-- JavaScript for column chart interactivity and random data generation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial random task data for each day
+            const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+            const initialData = [6, 9, 4, 7, 10, 3, 5];
+            
+            // Function to update the chart with new data
+            function updateChart(data) {
+                let totalTasks = 0;
+                
+                days.forEach((day, index) => {
+                    const bar = document.getElementById(`${day}-bar`);
+                    const taskCount = data[index];
+                    totalTasks += taskCount;
+                    
+                    // Calculate height percentage (max 10 tasks = 100% height)
+                    const heightPercentage = (taskCount / 10) * 100;
+                    bar.style.height = `${heightPercentage}%`;
+                    
+                    // Update the value display
+                    const barValue = bar.querySelector('.chart-bar-value');
+                    barValue.textContent = taskCount;
+                    
+                    // Add hover effect
+                    bar.addEventListener('mouseenter', function() {
+                        this.style.backgroundColor = '#2563eb';
+                    });
+                    
+                    bar.addEventListener('mouseleave', function() {
+                        this.style.backgroundColor = '#3b82f6';
+                    });
+                });
+                
+                // Update total tasks display
+                const totalTasksElement = document.querySelector('.text-2xl.font-bold.text-gray-800');
+                if (totalTasksElement && totalTasksElement.textContent.includes('tasks')) {
+                    totalTasksElement.innerHTML = `${totalTasks} <span class="text-lg text-gray-600">tasks</span>`;
+                }
+                
+                return totalTasks;
+            }
+            
+            // Function to generate random chart data
+            function generateRandomChartData() {
+                const randomData = [];
+                for (let i = 0; i < 7; i++) {
+                    randomData.push(Math.floor(Math.random() * 10) + 1); // 1-10 tasks
+                }
+                return randomData;
+            }
+            
+            // Initialize chart with initial data
+            const totalTasks = updateChart(initialData);
+            
+            // Add refresh button to generate new random data
+            const weeklyActivityCard = document.querySelector('.card.p-6.mb-8');
+            const existingFooter = weeklyActivityCard.querySelector('.mt-8.pt-6.border-t.border-gray-100');
+            
+            // Create a refresh button
+            const refreshButton = document.createElement('button');
+            refreshButton.className = 'mt-4 text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center';
+            refreshButton.innerHTML = '<i class="fas fa-redo-alt mr-2"></i> Generate Random Chart Data';
+            refreshButton.addEventListener('click', function() {
+                const newData = generateRandomChartData();
+                const newTotal = updateChart(newData);
+                
+                // Update percentage change (randomly positive or negative)
+                const percentageChange = Math.random() > 0.5 ? 
+                    Math.floor(Math.random() * 20) + 1 : 
+                    -(Math.floor(Math.random() * 10) + 1);
+                
+                const percentageElement = weeklyActivityCard.querySelector('.text-green-600.text-sm.font-medium');
+                if (percentageElement) {
+                    const arrowIcon = percentageChange >= 0 ? 
+                        '<i class="fas fa-arrow-up mr-1"></i>' : 
+                        '<i class="fas fa-arrow-down mr-1"></i>';
+                    const colorClass = percentageChange >= 0 ? 'text-green-600' : 'text-red-600';
+                    
+                    percentageElement.className = `${colorClass} text-sm font-medium`;
+                    percentageElement.innerHTML = `${arrowIcon} ${Math.abs(percentageChange)}% from last week`;
+                }
+            });
+            
+            // Add button after the existing footer
+            if (existingFooter) {
+                existingFooter.parentNode.insertBefore(refreshButton, existingFooter.nextSibling);
+            }
+            
+            // Add y-axis labels (optional, for better chart readability)
+            const chartContainer = document.querySelector('.chart-container');
+            const yAxisLabels = document.createElement('div');
+            yAxisLabels.className = 'absolute left-0 top-0 bottom-0 flex flex-col justify-between text-xs text-gray-400';
+            yAxisLabels.innerHTML = `
+                <div>10</div>
+                <div>8</div>
+                <div>6</div>
+                <div>4</div>
+                <div>2</div>
+                <div>0</div>
+            `;
+            chartContainer.appendChild(yAxisLabels);
+            
+            // Header login button functionality
+            const loginBtn = document.querySelector('header button');
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function() {
+                    alert('Login functionality would open a login modal or redirect to login page.');
+                });
+            }
+            
+            // Navigation links functionality
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageName = this.textContent;
+                    alert(`Navigating to ${pageName} page. This would load the appropriate content.`);
+                });
+            });
+            
+            // Apply button functionality
+            const applyBtn = document.querySelector('.apply-btn');
+            if (applyBtn) {
+                applyBtn.addEventListener('click', function() {
+                    alert('Application submitted successfully! The employer will contact you soon.');
+                    this.textContent = 'Applied ✓';
+                    this.style.backgroundColor = '#10b981';
+                    this.disabled = true;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
