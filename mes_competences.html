@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khademni - Mes Compétences</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    
+
+        <header class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    
+    <!-- Logo -->
+    <h1 class="text-xl font-bold">Khademni</h1>
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-6">
+  
+      <a href="#" class="hover:text-yellow-300">Offres compatibles</a>
+      <a href="#" class="hover:text-yellow-300">Profil & Expérience</a>
+      <a href="Mes parcours academique.html" class="hover:text-yellow-300">Créer Votre cv</a>
+    </nav>
+
+    <!-- Login -->
+    <button class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300">
+      Login
+    </button>
+
+  </div>
+</header>
+
+    <main class="container mx-auto p-4 sm:p-8 lg:p-12">
+        <div class="flex items-center justify-center mb-12">
+            <svg class="w-8 h-8 mr-3 text-[#0b1f38]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944c-1.385.01-2.753.256-4.041.737m8.082 0l-8.082 0m8.082 0a12.003 12.003 0 003.49-1.637m-3.49 1.637l-3.238 3.238m3.238-3.238a12.004 12.004 0 01-3.49 1.637m-8.082 0a12.003 12.003 0 00-3.49 1.637m3.49-1.637l3.238 3.238m-3.238-3.238a12.004 12.004 0 003.49 1.637M12 20.056V21m0-1.944l-3.238-3.238m3.238 3.238l3.238-3.238M12 20.056c-1.705 0-3.385-.465-4.858-1.342m4.858 1.342a12.004 12.004 0 004.858-1.342" />
+            </svg>
+            <h1 class="text-3xl font-semibold text-[#0b1f38]">Mes compétences</h1>
+        </div>
+
+        <div class="max-w-xl mx-auto space-y-10">
+            <div class="border-b border-gray-200 pb-4">
+                <h2 class="text-xl font-semibold text-gray-700 mb-4 flex items-center">
+                    <span class="mr-2">Compétences technique</span>
+                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4m-4-4H4" />
+                    </svg>
+                </h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-500 rounded border-gray-300 mr-2" />
+                        Laissez un feedback... (Placeholder pour champ texte libre ou liste)
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-500 rounded border-gray-300 mr-2" />
+                        (Autre Compétence Tech)
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-500 rounded border-gray-300 mr-2" />
+                        résolution
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-500 rounded border-gray-300 mr-2" />
+                        (Autre Compétence Tech)
+                    </label>
+                </div>
+            </div>
+
+            <div class="pb-4">
+                <h2 class="text-xl font-semibold text-gray-700 mb-4 flex items-center">
+                    <span class="mr-2">Soft skills</span>
+                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364l-1.318 1.318-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="relative">
+                        <input type="text" value="communication" class="px-2 py-1 border border-purple-400 focus:outline-none w-full bg-purple-100 rounded text-gray-700" readonly />
+                    </div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-500 rounded border-gray-300 mr-2" />
+                        (Autre Soft Skill)
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-500 rounded border-gray-300 mr-2" />
+                        creativite
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-yellow-500 rounded border-gray-300 mr-2" />
+                        esprit d'equipe
+                    </label>
+                </div>
+            </div>
+
+            <div class="flex justify-center pt-8">
+                <a href="mes_projets.html" class="bg-yellow-500 text-[#0b1f38] px-8 py-2 rounded-lg text-lg font-semibold shadow-md hover:bg-yellow-600 transition duration-150">
+                    Appliquer
+                </a>
+            </div>
+        </div>
+    </main>
+
+  <footer class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- TOP -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+
+      <!-- BRAND -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.3L5 7l7-3.3L19 7l-7 2.3zM2 17l10 5 10-5"/>
+          </svg>
+          <span class="text-lg font-semibold">Khademni</span>
+        </div>
+
+        <p class="text-xs leading-5 text-blue-200 max-w-xs">
+          Khademni was created for the new ways we live and work.
+          We make a better workspace around the world.
+        </p>
+      </div>
+
+      <!-- PRODUCT -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Product</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Overview</a></li>
+          <li><a href="#" class="hover:text-white">Pricing</a></li>
+          <li><a href="#" class="hover:text-white">Customer stories</a></li>
+        </ul>
+      </div>
+
+      <!-- RESOURCES -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Resources</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Guides & tutorials</a></li>
+          <li><a href="#" class="hover:text-white">Help center</a></li>
+        </ul>
+      </div>
+
+      <!-- COMPANY -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Company</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">About us</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Media kit</a></li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Try It Today</h4>
+        <p class="text-xs text-blue-200 mb-3 leading-5">
+          Get started for free. Add your whole team as your needs grow.
+        </p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-xs font-medium px-4 py-2 rounded-md">
+          Start today →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="border-t border-blue-800 mt-8 pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-blue-200">
+
+      <!-- LEFT -->
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="flex items-center gap-1 cursor-pointer">
+          🌐 English
+        </span>
+        <a href="#" class="hover:text-white">Terms & privacy</a>
+        <a href="#" class="hover:text-white">Security</a>
+        <a href="#" class="hover:text-white">Status</a>
+        <span>© 2025 Khademni LLC.</span>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-white">f</a>
+        <a href="#" class="hover:text-white">t</a>
+        <a href="#" class="hover:text-white">in</a>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

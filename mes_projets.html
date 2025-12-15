@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khademni - Mes Projets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .input-text {
+            border-bottom: 1px solid #d1d5db; /* gray-300 */
+        }
+        .placeholder-image {
+            background-image: url('https://via.placeholder.com/150x150/000000/FFFFFF?text=Project+Image');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-white">
+        <header class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    
+    <!-- Logo -->
+    <h1 class="text-xl font-bold">Khademni</h1>
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-6">
+  
+      <a href="#" class="hover:text-yellow-300">Offres compatibles</a>
+      <a href="#" class="hover:text-yellow-300">Profil & Expérience</a>
+      <a href="Mes parcours academique.html" class="hover:text-yellow-300">Créer Votre cv</a>
+    </nav>
+
+    <!-- Login -->
+    <button class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300">
+      Login
+    </button>
+
+  </div>
+</header>
+
+
+
+    <main class="container mx-auto p-4 sm:p-8 lg:p-12">
+        <div class="flex flex-col items-center">
+            <h1 class="text-3xl font-semibold text-[#0b1f38] mb-12 border-b-2 border-gray-200 pb-2">Mes projets</h1>
+        </div>
+
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12">
+            <div class="md:w-1/2 space-y-8">
+                <div class="flex flex-col items-center mb-6">
+                    <div class="text-[#0b1f38]">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col">
+                    <label for="nom_projet" class="text-gray-600 mb-1">Nom:</label>
+                    <input type="text" id="nom_projet" class="input-text focus:outline-none focus:border-blue-500 py-1" />
+                </div>
+                
+                <div class="flex flex-col">
+                    <label for="role_projet" class="text-gray-600 mb-1">Rôle:</label>
+                    <input type="text" id="role_projet" class="input-text focus:outline-none focus:border-blue-500 py-1" />
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="description_projet" class="text-gray-600 mb-1">Description:</label>
+                    <textarea id="description_projet" rows="4" class="input-text resize-none focus:outline-none focus:border-blue-500 py-1"></textarea>
+                </div>
+            </div>
+
+            <div class="md:w-1/2 flex flex-col items-center md:items-start space-y-6">
+                <div class="w-full max-w-sm h-64 bg-gray-200 shadow-xl rounded-lg overflow-hidden placeholder-image">
+                    </div>
+
+                <div class="flex space-x-4 mt-6">
+                    <button class="flex items-center bg-white border border-gray-300 text-gray-700 px-6 py-2 rounded-lg text-lg font-semibold shadow-md hover:bg-gray-50 transition duration-150">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                        modifier
+                    </button>
+                    <a href="style_selection.html" class="bg-yellow-500 text-[#0b1f38] px-6 py-2 rounded-lg text-lg font-semibold shadow-md hover:bg-yellow-600 transition duration-150">
+                        suivant
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+  <footer class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- TOP -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+
+      <!-- BRAND -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.3L5 7l7-3.3L19 7l-7 2.3zM2 17l10 5 10-5"/>
+          </svg>
+          <span class="text-lg font-semibold">Khademni</span>
+        </div>
+
+        <p class="text-xs leading-5 text-blue-200 max-w-xs">
+          Khademni was created for the new ways we live and work.
+          We make a better workspace around the world.
+        </p>
+      </div>
+
+      <!-- PRODUCT -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Product</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Overview</a></li>
+          <li><a href="#" class="hover:text-white">Pricing</a></li>
+          <li><a href="#" class="hover:text-white">Customer stories</a></li>
+        </ul>
+      </div>
+
+      <!-- RESOURCES -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Resources</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Guides & tutorials</a></li>
+          <li><a href="#" class="hover:text-white">Help center</a></li>
+        </ul>
+      </div>
+
+      <!-- COMPANY -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Company</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">About us</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Media kit</a></li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Try It Today</h4>
+        <p class="text-xs text-blue-200 mb-3 leading-5">
+          Get started for free. Add your whole team as your needs grow.
+        </p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-xs font-medium px-4 py-2 rounded-md">
+          Start today →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="border-t border-blue-800 mt-8 pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-blue-200">
+
+      <!-- LEFT -->
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="flex items-center gap-1 cursor-pointer">
+          🌐 English
+        </span>
+        <a href="#" class="hover:text-white">Terms & privacy</a>
+        <a href="#" class="hover:text-white">Security</a>
+        <a href="#" class="hover:text-white">Status</a>
+        <span>© 2025 Khademni LLC.</span>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-white">f</a>
+        <a href="#" class="hover:text-white">t</a>
+        <a href="#" class="hover:text-white">in</a>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

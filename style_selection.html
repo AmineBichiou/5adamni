@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sélectionner un style visuel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Masquer le radio input standard */
+        .radio-input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* Style rond non sélectionné */
+        .radio-indicator {
+            margin-top: 1rem;
+            height: 1.5rem;
+            width: 1.5rem;
+            background-color: #D1D5DB;
+            border-radius: 9999px;
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+        }
+
+        /* Style rond sélectionné */
+        .radio-input:checked + .radio-indicator {
+            background-color: #3B82F6;
+            border-width: 4px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Style carte sélectionnée */
+        .radio-input:checked ~ .cv-preview {
+            outline: 4px solid #3B82F6;
+            outline-offset: 0px;
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Ratio A4 */
+        .cv-aspect {
+            padding-top: 141.42%;
+            position: relative;
+        }
+
+        .cv-aspect img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    
+    <!-- Logo -->
+    <h1 class="text-xl font-bold">Khademni</h1>
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-6">
+  
+      <a href="#" class="hover:text-yellow-300">Offres compatibles</a>
+      <a href="#" class="hover:text-yellow-300">Profil & Expérience</a>
+      <a href="Mes parcours academique.html" class="hover:text-yellow-300">Créer Votre cv</a>
+    </nav>
+
+    <!-- Login -->
+    <button class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300">
+      Login
+    </button>
+
+  </div>
+</header>
+
+<div class="container mx-auto p-8">
+    <h1 class="text-4xl font-extrabold text-gray-800 text-center mb-12">Sélectionner un style visuel</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- CARD TEMPLATE -->
+        <!-- Copie pour chaque carte -->
+
+        <!-- CARTE 1 -->
+        <label class="flex flex-col items-center cursor-pointer">
+            <input type="radio" name="cv-style" class="radio-input">
+
+            <span class="radio-indicator"></span>
+
+            <div class="cv-preview w-full max-w-sm bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200 mt-4 transition">
+                <div class="cv-aspect">
+                    <img src="./images/cv-exemple-data-analyst.jpg" class="bg-green-100">
+                </div>
+            </div>
+        </label>
+
+        <!-- CARTE 2 -->
+        <label class="flex flex-col items-center cursor-pointer">
+            <input type="radio" name="cv-style" class="radio-input" checked>
+
+            <span class="radio-indicator"></span>
+
+            <div class="cv-preview w-full max-w-sm bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200 mt-4 transition">
+                <div class="cv-aspect">
+                    <img src="./images/exemple-cv-francais-2.jpg" class="bg-gray-100">
+                </div>
+            </div>
+        </label>
+
+        <!-- CARTE 3 -->
+        <label class="flex flex-col items-center cursor-pointer">
+            <input type="radio" name="cv-style" class="radio-input">
+
+            <span class="radio-indicator"></span>
+
+            <div class="cv-preview w-full max-w-sm bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200 mt-4 transition">
+                <div class="cv-aspect">
+                    <img src="./images/exemple-cv-immobilier.jpg" class="bg-blue-100">
+                </div>
+            </div>
+        </label>
+
+        <!-- CARTE 4 -->
+        <label class="flex flex-col items-center cursor-pointer">
+            <input type="radio" name="cv-style" class="radio-input">
+
+            <span class="radio-indicator"></span>
+
+            <div class="cv-preview w-full max-w-sm bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200 mt-4 transition">
+                <div class="cv-aspect">
+                    <img src="./images/images (1).jpg" class="bg-red-100">
+                </div>
+            </div>
+        </label>
+
+        <!-- CARTE 5 -->
+        <label class="flex flex-col items-center cursor-pointer">
+            <input type="radio" name="cv-style" class="radio-input">
+
+            <span class="radio-indicator"></span>
+
+            <div class="cv-preview w-full max-w-sm bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200 mt-4 transition">
+                <div class="cv-aspect">
+                    <img src="./images/images.jpg" class="bg-indigo-100">
+                </div>
+            </div>
+        </label>
+
+        <!-- CARTE 6 -->
+        <label class="flex flex-col items-center cursor-pointer">
+            <input type="radio" name="cv-style" class="radio-input">
+
+            <span class="radio-indicator"></span>
+
+            <div class="cv-preview w-full max-w-sm bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200 mt-4 transition">
+                <div class="cv-aspect">
+                    <img src="./images/images (2).jpg" class="bg-pink-100">
+                </div>
+            </div>
+        </label>
+
+    </div>
+
+    <div class="text-center mt-16">
+        <a href="cv_generated.html" class="inline-block px-10 py-4 text-lg font-bold text-gray-800 bg-yellow-300 rounded-lg shadow-md hover:bg-yellow-400 transition duration-300 uppercase tracking-wider">
+            Générez Votre CV
+        </a>
+    </div>
+</div>
+<footer class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- TOP -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+
+      <!-- BRAND -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.3L5 7l7-3.3L19 7l-7 2.3zM2 17l10 5 10-5"/>
+          </svg>
+          <span class="text-lg font-semibold">Khademni</span>
+        </div>
+
+        <p class="text-xs leading-5 text-blue-200 max-w-xs">
+          Khademni was created for the new ways we live and work.
+          We make a better workspace around the world.
+        </p>
+      </div>
+
+      <!-- PRODUCT -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Product</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Overview</a></li>
+          <li><a href="#" class="hover:text-white">Pricing</a></li>
+          <li><a href="#" class="hover:text-white">Customer stories</a></li>
+        </ul>
+      </div>
+
+      <!-- RESOURCES -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Resources</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Guides & tutorials</a></li>
+          <li><a href="#" class="hover:text-white">Help center</a></li>
+        </ul>
+      </div>
+
+      <!-- COMPANY -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Company</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">About us</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Media kit</a></li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Try It Today</h4>
+        <p class="text-xs text-blue-200 mb-3 leading-5">
+          Get started for free. Add your whole team as your needs grow.
+        </p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-xs font-medium px-4 py-2 rounded-md">
+          Start today →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="border-t border-blue-800 mt-8 pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-blue-200">
+
+      <!-- LEFT -->
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="flex items-center gap-1 cursor-pointer">
+          🌐 English
+        </span>
+        <a href="#" class="hover:text-white">Terms & privacy</a>
+        <a href="#" class="hover:text-white">Security</a>
+        <a href="#" class="hover:text-white">Status</a>
+        <span>© 2025 Khademni LLC.</span>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-white">f</a>
+        <a href="#" class="hover:text-white">t</a>
+        <a href="#" class="hover:text-white">in</a>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
