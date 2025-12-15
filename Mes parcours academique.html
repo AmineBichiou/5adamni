@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khademni - Parcours Académique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Styles personnalisés pour le formulaire si nécessaire, mais on utilise principalement Tailwind */
+        .input-text {
+            border-bottom: 1px solid #d1d5db; /* gray-300 */
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+       <header class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    
+    <!-- Logo -->
+    <h1 class="text-xl font-bold">Khademni</h1>
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-6">
+  
+      <a href="#" class="hover:text-yellow-300">Offres compatibles</a>
+      <a href="#" class="hover:text-yellow-300">Profil & Expérience</a>
+      <a href="Mes parcours academique.html" class="hover:text-yellow-300">Créer Votre cv</a>
+    </nav>
+
+    <!-- Login -->
+    <button class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300">
+      Login
+    </button>
+
+  </div>
+</header>
+
+    <main class="container mx-auto p-4 sm:p-8 lg:p-12">
+        <div class="flex flex-col items-center">
+            <h1 class="text-3xl font-semibold text-[#0b1f38] mb-12 border-b-2 border-gray-200 pb-2">Mes parcours academique</h1>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 items-end">
+                <div class="flex flex-col">
+                    <label for="nom_ecole" class="text-gray-600 mb-1">Nom de l'école:</label>
+                    <input type="text" id="nom_ecole" class="input-text focus:outline-none focus:border-blue-500 py-1" />
+                </div>
+                
+                <div class="flex flex-col">
+                    <label for="annee_debut_ecole" class="text-gray-600 mb-1">Année de début:</label>
+                    <input type="text" id="annee_debut_ecole" class="input-text focus:outline-none focus:border-blue-500 py-1" />
+                </div>
+
+                <div class="col-span-1 md:col-span-2 flex flex-col">
+                    <label for="diplome" class="text-gray-600 mb-1">Diplome obtenu:</label>
+                    <input type="text" id="diplome" class="input-text focus:outline-none focus:border-blue-500 py-1" />
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="annee_debut_diplome" class="text-gray-600 mb-1">Année de début:</label>
+                    <input type="text" id="annee_debut_diplome" class="input-text focus:outline-none focus:border-blue-500 py-1" />
+                </div>
+                <div class="flex flex-col">
+                    <label for="annee_fin_diplome" class="text-gray-600 mb-1">Année de fin:</label>
+                    <input type="text" id="annee_fin_diplome" class="input-text focus:outline-none focus:border-blue-500 py-1" />
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <button class="flex items-center text-sm text-yellow-600 hover:text-yellow-700 font-medium">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    ajouter une formation
+                </button>
+            </div>
+
+            <div class="flex justify-end pt-12">
+                <a href="mes_competences.html" class="bg-yellow-500 text-[#0b1f38] px-6 py-2 rounded-lg text-lg font-semibold shadow-md hover:bg-yellow-600 transition duration-150">
+                    suivant
+                </a>
+            </div>
+        </div>
+    </main>
+
+  <footer class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- TOP -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+
+      <!-- BRAND -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.3L5 7l7-3.3L19 7l-7 2.3zM2 17l10 5 10-5"/>
+          </svg>
+          <span class="text-lg font-semibold">Khademni</span>
+        </div>
+
+        <p class="text-xs leading-5 text-blue-200 max-w-xs">
+          Khademni was created for the new ways we live and work.
+          We make a better workspace around the world.
+        </p>
+      </div>
+
+      <!-- PRODUCT -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Product</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Overview</a></li>
+          <li><a href="#" class="hover:text-white">Pricing</a></li>
+          <li><a href="#" class="hover:text-white">Customer stories</a></li>
+        </ul>
+      </div>
+
+      <!-- RESOURCES -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Resources</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Guides & tutorials</a></li>
+          <li><a href="#" class="hover:text-white">Help center</a></li>
+        </ul>
+      </div>
+
+      <!-- COMPANY -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Company</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">About us</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Media kit</a></li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Try It Today</h4>
+        <p class="text-xs text-blue-200 mb-3 leading-5">
+          Get started for free. Add your whole team as your needs grow.
+        </p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-xs font-medium px-4 py-2 rounded-md">
+          Start today →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="border-t border-blue-800 mt-8 pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-blue-200">
+
+      <!-- LEFT -->
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="flex items-center gap-1 cursor-pointer">
+          🌐 English
+        </span>
+        <a href="#" class="hover:text-white">Terms & privacy</a>
+        <a href="#" class="hover:text-white">Security</a>
+        <a href="#" class="hover:text-white">Status</a>
+        <span>© 2025 Khademni LLC.</span>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-white">f</a>
+        <a href="#" class="hover:text-white">t</a>
+        <a href="#" class="hover:text-white">in</a>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

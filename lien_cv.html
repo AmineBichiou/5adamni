@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khademni - Lien CV Généré</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Style pour l'input du lien */
+        .cv-link-input {
+            background-color: #f3f4f6; /* gray-100 */
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #d1d5db;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+       <header class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    
+    <!-- Logo -->
+    <h1 class="text-xl font-bold">Khademni</h1>
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-6">
+  
+      <a href="#" class="hover:text-yellow-300">Offres compatibles</a>
+      <a href="#" class="hover:text-yellow-300">Profil & Expérience</a>
+      <a href="Mes parcours academique.html" class="hover:text-yellow-300">Créer Votre cv</a>
+    </nav>
+
+    <!-- Login -->
+    <button class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300">
+      Login
+    </button>
+
+  </div>
+</header>
+
+    <main class="container mx-auto p-4 sm:p-8 lg:p-12">
+        <div class="max-w-xl mx-auto flex flex-col items-center pt-24">
+            
+            <div class="w-full bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                <div class="flex items-center justify-center mb-6">
+                    <div class="text-[#0b1f38] mr-3">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4m-4-4H4" />
+                        </svg>
+                    </div>
+                    <h1 class="text-3xl font-semibold text-[#0b1f38]"> lien (Place le titre)</h1>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-gray-600 font-medium">Copier:</p>
+                    <div class="flex items-center space-x-2">
+                        <input type="text" value="https://cv-gen.com/share/xyz123" readonly class="flex-grow cv-link-input text-lg text-gray-800" />
+                        
+                        <button class="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition duration-150 flex-shrink-0" onclick="navigator.clipboard.writeText('https://cv-gen.com/share/xyz123')">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v4a1 1 0 001 1h4a1 1 0 001-1V7m-5 0V5a2 2 0 012-2h4a2 2 0 012 2v2m-6 0h6m-7-5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-center">
+                    <a href="parcours_academique.html" class="text-blue-500 hover:text-blue-600 font-medium transition duration-150">
+                        Créer un nouveau CV
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+ <footer class="bg-[#0B3A6F] text-white">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- TOP -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+
+      <!-- BRAND -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.3L5 7l7-3.3L19 7l-7 2.3zM2 17l10 5 10-5"/>
+          </svg>
+          <span class="text-lg font-semibold">Khademni</span>
+        </div>
+
+        <p class="text-xs leading-5 text-blue-200 max-w-xs">
+          Khademni was created for the new ways we live and work.
+          We make a better workspace around the world.
+        </p>
+      </div>
+
+      <!-- PRODUCT -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Product</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Overview</a></li>
+          <li><a href="#" class="hover:text-white">Pricing</a></li>
+          <li><a href="#" class="hover:text-white">Customer stories</a></li>
+        </ul>
+      </div>
+
+      <!-- RESOURCES -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Resources</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Guides & tutorials</a></li>
+          <li><a href="#" class="hover:text-white">Help center</a></li>
+        </ul>
+      </div>
+
+      <!-- COMPANY -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Company</h4>
+        <ul class="space-y-2 text-xs text-blue-200">
+          <li><a href="#" class="hover:text-white">About us</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Media kit</a></li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3">Try It Today</h4>
+        <p class="text-xs text-blue-200 mb-3 leading-5">
+          Get started for free. Add your whole team as your needs grow.
+        </p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-xs font-medium px-4 py-2 rounded-md">
+          Start today →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="border-t border-blue-800 mt-8 pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-blue-200">
+
+      <!-- LEFT -->
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="flex items-center gap-1 cursor-pointer">
+          🌐 English
+        </span>
+        <a href="#" class="hover:text-white">Terms & privacy</a>
+        <a href="#" class="hover:text-white">Security</a>
+        <a href="#" class="hover:text-white">Status</a>
+        <span>© 2025 Khademni LLC.</span>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-white">f</a>
+        <a href="#" class="hover:text-white">t</a>
+        <a href="#" class="hover:text-white">in</a>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

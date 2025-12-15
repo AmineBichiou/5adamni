@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | Khademni</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- HEADER (kept) -->
+  <div id="header"></div>
+
+  <main class="max-w-7xl mx-auto px-6 py-10">
+
+    <!-- PROFILE HEADER -->
+    <section class="bg-white rounded-xl shadow p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div class="flex items-center gap-6">
+        <!-- Avatar -->
+        <div class="w-20 h-20 rounded-full bg-[#043873] text-white flex items-center justify-center text-2xl font-bold">
+          M
+        </div>
+
+        <!-- User Info -->
+        <div>
+          <h1 class="text-2xl font-bold">Mohamed Mansour</h1>
+          <p class="text-gray-500">Computer Science Student</p>
+          <div class="flex flex-wrap gap-4 mt-2 text-sm text-gray-600">
+            <span class="flex items-center gap-1">
+              <span class="material-icons text-base">email</span>
+              mohamed@university.tn
+            </span>
+            <span class="flex items-center gap-1">
+              <span class="material-icons text-base">call</span>
+              +216 55 555 555
+            </span>
+            <span class="flex items-center gap-1">
+              <span class="material-icons text-base">location_on</span>
+              Ariana, Tunisia
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Profile -->
+      <button class="flex items-center gap-2 bg-[#FFDC4D] text-[#043873] font-semibold px-4 py-2 rounded-lg">
+        <span class="material-icons">edit</span>
+        Edit Profile
+      </button>
+    </section>
+
+    <!-- STATS -->
+    <section class="grid md:grid-cols-3 gap-6 mt-8">
+      <div class="bg-[#043873] text-white rounded-lg p-6 text-center">
+        <p class="text-sm">Top Rated</p>
+        <p class="text-xl font-bold mt-2">15 Jobs</p>
+      </div>
+      <div class="bg-[#043873] text-white rounded-lg p-6 text-center">
+        <p class="text-sm">Fast Response</p>
+        <p class="text-xl font-bold mt-2">Avg 2.3h</p>
+      </div>
+      <div class="bg-[#043873] text-white rounded-lg p-6 text-center">
+        <p class="text-sm">Success Rate</p>
+        <p class="text-xl font-bold mt-2">94%</p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="grid md:grid-cols-2 gap-8 mt-10">
+      <!-- Soft Skills -->
+      <div class="bg-white rounded-xl shadow p-6">
+        <h2 class="font-bold mb-4 flex items-center gap-2">
+          <span class="material-icons">psychology</span>
+          Soft Skills
+        </h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-3 py-1 border rounded-full">Problem Solving</span>
+          <span class="px-3 py-1 border rounded-full">Communication</span>
+          <span class="px-3 py-1 border rounded-full">Leadership</span>
+        </div>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="bg-white rounded-xl shadow p-6">
+        <h2 class="font-bold mb-4 flex items-center gap-2">
+          <span class="material-icons">code</span>
+          Technical Skills
+        </h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-3 py-1 border rounded-full">Node.js</span>
+          <span class="px-3 py-1 border rounded-full">Next.js</span>
+          <span class="px-3 py-1 border rounded-full">Python</span>
+          <span class="px-3 py-1 border rounded-full">SQL</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="bg-white rounded-xl shadow p-6 mt-10">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="font-bold flex items-center gap-2">
+          <span class="material-icons">school</span>
+          Education
+        </h2>
+        <button class="flex items-center gap-1 text-sm bg-[#FFDC4D] text-[#043873] px-3 py-1 rounded">
+          <span class="material-icons text-sm">add</span>
+          Add Education
+        </button>
+      </div>
+      <div class="bg-[#043873] text-white rounded-lg p-4">
+        <p class="font-semibold">University of Technology</p>
+        <p class="text-sm">Computer Science · 2022 - Present</p>
+        <p class="text-sm">GPA: 3.8 / 4.0</p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="bg-white rounded-xl shadow p-6 mt-10">
+      <h2 class="font-bold mb-4 flex items-center gap-2">
+        <span class="material-icons">work</span>
+        Experience
+      </h2>
+      <div class="bg-[#043873] text-white rounded-lg p-4">
+        <p class="font-semibold">Car Rental Website</p>
+        <p class="text-sm">Full Stack Developer · 2025 - 2026</p>
+        <p class="text-sm">Already Sold</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (kept) -->
+  <div id="footer"></div>
+
+  <!-- JS include -->
+  <script src="../js/include.js"></script>
+</body>
+</html>
