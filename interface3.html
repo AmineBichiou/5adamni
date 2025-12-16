@@ -497,14 +497,7 @@
             }
             
             // Function to generate random chart data
-            function generateRandomChartData() {
-                const randomData = [];
-                for (let i = 0; i < 7; i++) {
-                    randomData.push(Math.floor(Math.random() * 10) + 1); // 1-10 tasks
-                }
-                return randomData;
-            }
-            
+           
             // Initialize chart with initial data
             const totalTasks = updateChart(initialData);
             
@@ -512,30 +505,8 @@
             const weeklyActivityCard = document.querySelector('.card.p-6.mb-8');
             const existingFooter = weeklyActivityCard.querySelector('.mt-8.pt-6.border-t.border-gray-100');
             
-            // Create a refresh button
-            const refreshButton = document.createElement('button');
-            refreshButton.className = 'mt-4 text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center';
-            refreshButton.innerHTML = '<i class="fas fa-redo-alt mr-2"></i> Generate Random Chart Data';
-            refreshButton.addEventListener('click', function() {
-                const newData = generateRandomChartData();
-                const newTotal = updateChart(newData);
-                
-                // Update percentage change (randomly positive or negative)
-                const percentageChange = Math.random() > 0.5 ? 
-                    Math.floor(Math.random() * 20) + 1 : 
-                    -(Math.floor(Math.random() * 10) + 1);
-                
-                const percentageElement = weeklyActivityCard.querySelector('.text-green-600.text-sm.font-medium');
-                if (percentageElement) {
-                    const arrowIcon = percentageChange >= 0 ? 
-                        '<i class="fas fa-arrow-up mr-1"></i>' : 
-                        '<i class="fas fa-arrow-down mr-1"></i>';
-                    const colorClass = percentageChange >= 0 ? 'text-green-600' : 'text-red-600';
-                    
-                    percentageElement.className = `${colorClass} text-sm font-medium`;
-                    percentageElement.innerHTML = `${arrowIcon} ${Math.abs(percentageChange)}% from last week`;
-                }
-            });
+        
+        
             
             // Add button after the existing footer
             if (existingFooter) {
